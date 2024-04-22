@@ -9,6 +9,7 @@
 </head>
 
 <body>
+@include('navbar')
 <p>hello world</p>
 </body>
 </html>

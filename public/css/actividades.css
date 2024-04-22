@@ -1,0 +1,32 @@
+body {
+    background-color: lightgrey;
+}
+
+nav {
+    background-color: darkgrey;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+.content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.post, .participation {
+    border: 1px solid darkgrey;
+    padding: 10px;
+}
+
+.post ul, .participation ul {
+    list-style-type: none;
+    padding: 0;
+}

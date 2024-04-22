@@ -1,0 +1,55 @@
+body {
+    background-color: #FFA500; /* Fondo naranja */
+}
+
+.navbar {
+    background-color: #000080; /* Barra de navegación azul oscuro */
+    color: #FFFFFF; /* Texto blanco */
+    padding: 10px;
+}
+
+.navbar ul {
+    list-style-type: none; /* Elimina los puntos de la lista */
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.navbar li {
+    float: left; /* Alinea los elementos de la lista horizontalmente */
+}
+
+.navbar li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.card {
+    background-color: #FFFFFF; /* Tarjeta blanca */
+    margin: 10px;
+    padding: 10px;
+    border-radius: 5px; /* Bordes redondeados */
+}
+
+.table {
+    width: 100%; /* Ancho completo */
+    border-collapse: collapse; /* Elimina los espacios entre las celdas */
+}
+
+.table th, .table td {
+    border: 1px solid #000000; /* Borde negro */
+    padding: 15px;
+    text-align: left;
+}
+
+.table th {
+    background-color: #808080; /* Encabezado gris */
+    color: white;
+}
+
+.table tr:nth-child(even) {
+    background-color: #f2f2f2; /* Filas pares en gris claro */
+}
