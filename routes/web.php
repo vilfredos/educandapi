@@ -26,5 +26,9 @@ Route::get('/vista_principal', function () {
 })->name('vista_principal');
 
 use App\Http\Controllers\RankingController;
+use Illuminate\Support\Facades\Auth;
 
 Route::get('/ranking', 'App\Http\Controllers\RankingController@index')->name('ranking');
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

@@ -13,6 +13,6 @@ class RankingController extends Controller
         $posts = DB::table('posts')->get();
 
         return view('ranking', ['posts' => $posts]);
-    }
+    } 
 
 }
