@@ -1,10 +1,6 @@
-<!DOCTYPE html>
-<html>
+@extends('layouts.app')
 
-<head>
-    <!-- Agrega esta línea para vincular tu archivo CSS -->
-    <link href="{{ asset('css/ranking.css') }}" rel="stylesheet">
-</head>
+@section('content')
 @include('navbar')
 <div class="container">
     <div class="row justify-content-center">
@@ -17,21 +13,20 @@
                         <thead>
                             <tr>
                                 <th>ID Post</th>
-                                <th>ID Usuario</th>
+                                <th>Nombre del Usuario</th>
                                 <th>Título</th>
                                 <th>Descripción</th>
-                                <th>Calificación</th>
+                                <th>Cantidad de Comentarios</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach ($posts as $post)
                             <tr>
                                 <td>{{ $post->id_post }}</td>
-                                <td>{{ $post->id_usuario }}</td>
-                                <td>{{ $post->titulo }}</td>
-                                <td>{{ $post->descripcion }}</td>
-                                <td>{{ $post->calificacion }}</td>
-
+                                <td>{{ $post->name }}</td> <!-- Muestra el nombre del usuario -->
+                                <td>{{ $post->title }}</td>
+                                <td>{{ $post->body }}</td>
+                                <td>{{ $post->comment_count }}</td> <!-- Muestra la cantidad de comentarios -->
                             </tr>
                             @endforeach
                         </tbody>
@@ -41,6 +36,4 @@
         </div>
     </div>
 </div>
-</body>
-
-</html>
+@endsection
