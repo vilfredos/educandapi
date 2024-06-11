@@ -1,0 +1,11 @@
+.container {
+    background-color: #eff4ee;
+}
+.navbar-brand-title {
+    font-family: 'Nunito', sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+    color: #4CAF50; /* Green color */
+    text-shadow: 1px 1px 2px #000; /* Text shadow */
+    margin-left: 10px; /* Spacing between the logo and title */
+}

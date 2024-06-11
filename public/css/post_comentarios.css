@@ -1,0 +1,49 @@
+/* Estilo para los comentarios */
+.comment-container {
+    margin-bottom: 20px;
+}
+.comment-section {
+    background-color: rgba(0, 0, 0, 0.447); /* Color de fondo semitransparente */
+    padding: 20px; /* Ajusta el espacio interno según sea necesario */
+}
+
+.card {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+.card-header {
+    background-color: #f0f0f0;
+    padding: 10px 15px;
+    border-bottom: 1px solid #ccc;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.card-body {
+    padding: 15px;
+}
+
+.card-footer {
+    padding: 15px;
+    border-top: 1px solid #ccc;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+/* Estilo para los botones */
+.btn-link {
+    color: #007bff;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-link:hover {
+    text-decoration: underline;
+}
+
+/* Estilo para el botón de mostrar/ocultar respuestas */
+.toggle-replies-btn {
+    margin-top: 10px;
+}

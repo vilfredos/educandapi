@@ -1,0 +1,42 @@
+.community-rules, .announcements, .posts {
+    background-color: #3c763d; /* Verde para el fondo */
+    border: 5px solid #8B4513; /* Bordes color café tipo madera */
+    border-radius: 10px;
+    color: white;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.community-rules .card-header, .announcements .card-header, .posts .card-header {
+    background-color: #3c763d; /* Mismo verde para la cabecera */
+    border-bottom: 2px solid #8B4513; /* Borde inferior café */
+}
+
+.community-rules .card-body, .announcements .card-body, .posts .card-body {
+    background-color: #3c763d; /* Mismo verde para el cuerpo */
+}
+
+.community-rules ul, .announcements ul, .posts ul {
+    list-style-type: disc;
+    margin-left: 20px;
+}
+
+.community-rules li, .announcements li, .posts li {
+    margin-bottom: 10px;
+}
+
+.community-rules strong, .announcements strong, .posts strong {
+    color: #FFD700; /* Dorado para resaltar */
+}
+.posts a {
+    color: #FFD700; /* Dorado */
+    text-decoration: none;
+}
+
+.posts a:hover {
+    color: #FFA500; /* Naranja más oscuro para el hover */
+    text-decoration: underline;
+}
+
+
+
