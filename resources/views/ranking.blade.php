@@ -1,3 +1,5 @@
+
+
 @extends('layouts.app')
 
 @section('content')
@@ -6,13 +8,12 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Ranking</div>
+            <div class="card-header text-center">Post</div>
 
                 <div class="card-body">
                     <table class="table">
                         <thead>
                             <tr>
-                                <th>ID Post</th>
                                 <th>Nombre del Usuario</th>
                                 <th>Título</th>
                                 <th>Descripción</th>
@@ -22,7 +23,6 @@
                         <tbody>
                             @foreach ($posts as $post)
                             <tr>
-                                <td>{{ $post->id_post }}</td>
                                 <td>{{ $post->name }}</td> <!-- Muestra el nombre del usuario -->
                                 <td>{{ $post->title }}</td>
                                 <td>{{ $post->body }}</td>

@@ -1,9 +1,10 @@
+/* Navbar styles */
 nav {
-    background-color: #6c757d;
-    padding: 10px;
+    background-color: #4CAF50; /* Un verde oscuro */
+    padding: 15px 20px;
     margin-bottom: 20px;
     border-radius: 10px;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 nav ul {
@@ -11,20 +12,21 @@ nav ul {
     padding: 0;
     display: flex;
     justify-content: space-around;
+    align-items: center; /* Align items vertically in the center */
 }
 
 nav ul li {
     display: inline-block;
-    margin: 0 10px;
+    margin: 0 15px;
 }
 
 nav ul li a {
-    color: #f8f9fa;
+    color: #ffffff; /* Texto blanco */
     text-decoration: none;
     font-size: 18px;
-    transition: color 0.5s ease;
+    transition: color 0.3s ease; /* Smooth transition for hover effect */
 }
 
 nav ul li a:hover {
-    color: #007bff;
+    color: #45a049; /* Un verde un poco más oscuro cuando se pasa el cursor por encima */
 }
