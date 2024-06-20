@@ -111,3 +111,14 @@ use App\Http\Controllers\CalificacionController;
 
 Route::get('/calificar_post', [CalificacionController::class, 'mostrarCalificaciones'])->name('calificar_post');
 Route::post('/calificar', [CalificacionController::class, 'guardarCalificaciones'])->name('guardar_calificaciones');
+
+use App\Http\Controllers\MoodleController;
+
+Route::get('/course/{id}', [MoodleController::class, 'showCourse']);
+
+
+
+use App\Http\Controllers\LTIController;
+
+Route::post('/lti/launch', [LTIController::class, 'launch']);
+Route::post('/lti/handle', [LTIController::class, 'handlePost']);
