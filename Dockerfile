@@ -74,10 +74,6 @@ RUN php artisan config:cache
 
 # Limpiar y cachear rutas
 RUN php artisan route:clear
-RUN php artisan route:cache
-
-# Limpiar cache
-RUN php artisan cache:clear
 
 # Compilar assets
 RUN npm run build
