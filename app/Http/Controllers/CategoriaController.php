@@ -9,18 +9,18 @@ class CategoriaController extends Controller
 {
     public function index()
     {
-        $categorias = DB::table('Categoria')->get();
+        $categorias = DB::table('categoria')->get();
         
         foreach ($categorias as $categoria) {
-            $categoria->posts = DB::table('Post')
+            $categoria->posts = DB::table('post')
                 ->where('id_categoria', $categoria->id_categoria)
                 ->get();
         }
     
         // Obtener anuncios
-        $anuncios = DB::table('Anuncios')
-            ->join('users', 'Anuncios.id_user', '=', 'users.id')
-            ->select('Anuncios.*', 'users.name')
+        $anuncios = DB::table('anuncios')
+            ->join('users', 'anuncios.id_user', '=', 'users.id')
+            ->select('anuncios.*', 'users.name')
             ->get();
     
         return view('pagina_central', [

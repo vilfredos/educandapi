@@ -3,34 +3,33 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Services\LTIService;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
+use ceLTIc\LTI\Tool;
 
 class LTIController extends Controller
 {
-    protected $ltiService;
+    protected $tool;
 
-    public function __construct(LTIService $ltiService)
+    public function __construct()
     {
-        $this->ltiService = $ltiService;
+        // Inicialización de $this->tool
     }
 
     public function launch(Request $request)
     {
-        // Verificar la solicitud LTI
-        $valid = $this->ltiService->validateLTIRequest($request);
+        Log::info('Datos de lanzamiento LTI recibidos:', $request->all());
 
-        if ($valid) {
-            // Crear o autenticar al usuario en Laravel
-            $user = $this->ltiService->findOrCreateUser($request);
+        if ($this->tool->handleRequest()) {
+            $userId = $request->input('user_id');
+            $contextId = $request->input('context_id');
 
-            // Loguear al usuario
-            Auth::login($user);
-
-            // Redirigir al usuario a la página principal
-            return redirect('/home');
+            return view('lti.launch', [
+                'userId' => $userId,
+                'contextId' => $contextId,
+            ]);
+        } else {
+            Log::error('Lanzamiento LTI inválido');
+            return response('Lanzamiento LTI no válido', 401);
         }
-
-        return response('Invalid LTI request', 400);
     }
 }

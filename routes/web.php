@@ -3,10 +3,12 @@
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('auth/login');
+    return view('auth.login');
 });
+
+
 /*
-Route::get('/ranking', function () {
+Route::middleware('/ranking', function () {
     return view('ranking');
 })->name('ranking');
 */
@@ -117,8 +119,7 @@ use App\Http\Controllers\MoodleController;
 Route::get('/course/{id}', [MoodleController::class, 'showCourse']);
 
 
-
 use App\Http\Controllers\LTIController;
 
-Route::post('/lti/launch', [LTIController::class, 'launch']);
-Route::post('/lti/handle', [LTIController::class, 'handlePost']);
+
+Route::post('/lti', [LTIController::class, 'launch'])->name('launch');

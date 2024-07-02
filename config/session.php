@@ -87,7 +87,7 @@ return [
     */
 
     'table' => env('SESSION_TABLE', 'sessions'),
-
+    'secure' => env('SESSION_SECURE_COOKIE', false),
     /*
     |--------------------------------------------------------------------------
     | Session Cache Store
