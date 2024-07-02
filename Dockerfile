@@ -14,7 +14,8 @@ RUN apt-get update && apt-get install -y \
     nodejs \
     npm \
     nginx \
-    sqlite3
+    sqlite3 \
+    libsqlite3-dev
 
 # Configurar y instalar extensiones PHP
 RUN docker-php-ext-configure gd --with-freetype --with-jpeg
