@@ -40,8 +40,11 @@ RUN npm install
 # Copiar el resto de los archivos de la aplicación
 COPY . .
 
-# Generar el autoloader de Composer
+# Generar el autoloader de Composer y limpiar la configuración
+RUN composer install --no-scripts
 RUN composer dump-autoload --optimize
+RUN php artisan config:clear
+RUN php artisan cache:clear
 
 # Compilar assets
 RUN npm run build
