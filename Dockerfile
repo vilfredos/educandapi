@@ -33,6 +33,9 @@ WORKDIR /var/www/html
 # Copiar archivos de composer y package.json
 COPY composer.json composer.lock package.json package-lock.json ./
 
+# Copiar el archivo .env
+COPY .env.example .env
+
 # Instalar dependencias de PHP
 RUN composer install --no-scripts --no-autoloader
 
@@ -42,25 +45,30 @@ RUN npm install
 # Copiar el resto de los archivos de la aplicación
 COPY . .
 
-# Generar el autoloader de Composer y limpiar la configuración
-RUN composer install --no-scripts --no-autoloader
+# Generar el autoloader de Composer
 RUN composer dump-autoload --optimize
 
-# Crear la base de datos SQLite si no existe
-RUN touch /var/www/html/database/database.sqlite
-
-# Limpiar configuración y cache de Laravel
-RUN php artisan config:clear
-RUN php artisan cache:clear
-
-# Compilar assets
-RUN npm run build
+# Crear directorios necesarios y establecer permisos
+RUN mkdir -p storage/framework/cache storage/framework/sessions storage/framework/views
+RUN chmod -R 775 storage bootstrap/cache
+RUN chown -R www-data:www-data storage bootstrap/cache
 
 # Generar key de la aplicación
 RUN php artisan key:generate
 
-# Configurar permisos
-RUN chown -R www-data:www-data storage bootstrap/cache
+# Limpiar y cachear configuración
+RUN php artisan config:clear
+RUN php artisan config:cache
+
+# Limpiar y cachear rutas
+RUN php artisan route:clear
+RUN php artisan route:cache
+
+# Limpiar cache
+RUN php artisan cache:clear
+
+# Compilar assets
+RUN npm run build
 
 # Exponer puerto
 EXPOSE 80
