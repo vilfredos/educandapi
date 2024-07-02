@@ -13,11 +13,12 @@ RUN apt-get update && apt-get install -y \
     curl \
     nodejs \
     npm \
-    nginx
+    nginx \
+    sqlite3
 
 # Configurar y instalar extensiones PHP
 RUN docker-php-ext-configure gd --with-freetype --with-jpeg
-RUN docker-php-ext-install pdo pdo_mysql zip gd
+RUN docker-php-ext-install pdo pdo_mysql pdo_sqlite zip gd
 
 # Instalar Composer
 COPY --from=composer:2.5.5 /usr/bin/composer /usr/bin/composer
@@ -41,8 +42,13 @@ RUN npm install
 COPY . .
 
 # Generar el autoloader de Composer y limpiar la configuración
-RUN composer install --no-scripts
+RUN composer install --no-scripts --no-autoloader
 RUN composer dump-autoload --optimize
+
+# Crear la base de datos SQLite si no existe
+RUN touch /var/www/html/database/database.sqlite
+
+# Limpiar configuración y cache de Laravel
 RUN php artisan config:clear
 RUN php artisan cache:clear
 
