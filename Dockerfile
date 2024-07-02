@@ -33,8 +33,20 @@ WORKDIR /var/www/html
 # Copiar archivos de composer y package.json
 COPY composer.json composer.lock package.json package-lock.json ./
 
-# Copiar el archivo .env
-COPY .env.example .env
+# Crear archivo .env
+RUN touch .env && \
+    echo "APP_NAME=Laravel" >> .env && \
+    echo "APP_ENV=production" >> .env && \
+    echo "APP_KEY=" >> .env && \
+    echo "APP_DEBUG=false" >> .env && \
+    echo "APP_URL=http://localhost" >> .env && \
+    echo "DB_CONNECTION=mysql" >> .env && \
+    echo "DB_HOST=db4free.net" >> .env && \
+    echo "DB_PORT=3306" >> .env && \
+    echo "DB_DATABASE=bd_sedu" >> .env && \
+    echo "DB_USERNAME=ageen_sedu" >> .env && \
+    echo "DB_PASSWORD=ageen_sedu" >> .env && \
+    echo "CACHE_DRIVER=file" >> .env
 
 # Instalar dependencias de PHP
 RUN composer install --no-scripts --no-autoloader
